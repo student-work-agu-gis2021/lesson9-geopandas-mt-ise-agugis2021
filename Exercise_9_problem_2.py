@@ -33,7 +33,9 @@ import geopandas as gpd
 from pyproj import CRS
 
 # Convert DataFrame into a GeoDataFrame
-geo=None
+geo= gpd.GeoDataFrame(data, geometry='geometry',crs=CRS.from_epsg(4326).to_wkt())
+fp="Kruger_posts.shp"
+geo.to_file(fp)
 # CODE FOR TESTING YOUR SOLUTION
 
 # Check the geodataframe head
@@ -52,7 +54,7 @@ assert os.path.isfile(fp), "output shapefile does not exist"
 # - **Create a simple map of the points** using the `plot()` -funtion. 
 
 # YOUR CODE HERE 3
-
+geo.plot()
 # Well done! Now you can move on to Exercise_9_problem_3.
 
 def func5():
